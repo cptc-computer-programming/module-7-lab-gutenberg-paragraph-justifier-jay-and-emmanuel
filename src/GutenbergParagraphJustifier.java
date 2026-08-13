@@ -1,5 +1,6 @@
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
+import java.io.PrintWriter;
 import java.io.File;
 import java.util.Scanner;
 
@@ -20,12 +21,13 @@ public static final int TAB_SIZE = 4;
         } while (!f.canRead());
     
         // create scanners
-
+        Scanner input = new Scanner(f);
 
         // create output stream
-
+        PrintWriter output = new PrintWriter(new File("data\\output\\justified.txt"));
 
         // process
+        justifyParagraphs(input, output);
 
         // close scanners
         console.close();
@@ -35,12 +37,13 @@ public static final int TAB_SIZE = 4;
     // - trims every line
     // - collapses multiple blank lines into ONE blank line
     // - indents every nonblank line by TAB_SIZE spaces
-    public static void justifyParagraphs(Scanner input, PrintStream out) {
+    public static void justifyParagraphs(Scanner input, PrintWriter out) {
         String tab = spaces(TAB_SIZE);
         while (input.hasNextLine()) {
-            String line = input.nextLine();
+            String line = input.nextLine().trim();
 
-            line.trim();
+            out.print(tab); // Indents the line
+            out.println(line); // Prints line
         }
     }
 

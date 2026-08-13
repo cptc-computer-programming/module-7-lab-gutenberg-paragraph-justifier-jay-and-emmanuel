@@ -7,7 +7,20 @@ public class GutenbergParagraphJustifier {
 public static final int TAB_SIZE = 4;
 
     public static void main(String[] args) throws FileNotFoundException {
+        // SET UP
+        Scanner console = new Scanner(System.in);
+        File f; 
+        do {
+            System.out.println("Enter the path to your input file.");
+            String filename = console.next();
+            f = new File(filename);
+            if (!f.canRead()) {
+                System.out.println("Please enter a valid filename.");
+            }
+        } while (!f.canRead());
+    
         // create scanners
+
 
         // create output stream
 
@@ -15,7 +28,7 @@ public static final int TAB_SIZE = 4;
         // process
 
         // close scanners
-
+        console.close();
     }
 
     // Reads the input text and writes a "justified" version:
@@ -23,6 +36,9 @@ public static final int TAB_SIZE = 4;
     // - collapses multiple blank lines into ONE blank line
     // - indents every nonblank line by TAB_SIZE spaces
     public static void justifyParagraphs(Scanner input, PrintStream out) {
+        while (input.hasNextLine()) {
+            
+        }
     }
 
     // Prompts until a readable file name is provided, then returns a Scanner on it.

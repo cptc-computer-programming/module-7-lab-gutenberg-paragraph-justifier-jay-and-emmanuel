@@ -36,8 +36,11 @@ public static final int TAB_SIZE = 4;
     // - collapses multiple blank lines into ONE blank line
     // - indents every nonblank line by TAB_SIZE spaces
     public static void justifyParagraphs(Scanner input, PrintStream out) {
+        String tab = spaces(TAB_SIZE);
         while (input.hasNextLine()) {
-            
+            String line = input.nextLine();
+
+            line.trim();
         }
     }
 
@@ -48,6 +51,10 @@ public static final int TAB_SIZE = 4;
 
     // Returns a string of n spaces (no tabs).
     public static String spaces(int n) {
-        return "";
+        String tab = "";
+        for (int i = 0; i < n; i++) {
+            tab += " ";
+        }
+        return tab;
     }
 }
